@@ -23,6 +23,19 @@ public class StackGeneric<T extends Comparable<T>> extends LinkedlistGeneric<T> 
         }
         return data;
     }
+    /*
+ @desc : this function removes the top element
+ @params : no params
+ @return : data will return
+  */
+    public T pop(){
+        T data = super.pop();
+        if(data != null){
+            System.out.println("first element deleted successfully");
+        }
+
+        return data;
+    }
     public static void main(String[] args) {
         System.out.println("!!! welcome to stack !!!");
         StackGeneric<Integer> newStack = new StackGeneric<>();
@@ -31,6 +44,12 @@ public class StackGeneric<T extends Comparable<T>> extends LinkedlistGeneric<T> 
         newStack.push(36);
         newStack.printList();
         newStack.push(50);
+        newStack.printList();
+        System.out.println("top element in stack is : " + newStack.peek());
+        newStack.pop();
+        newStack.printList();
+        System.out.println("top element in stack is : " + newStack.peek());
+        newStack.pop();
         newStack.printList();
     }
 }
