@@ -1,29 +1,42 @@
 
 
-package DataStructureGeneric;
+package com.bridgelabz.datastructuregeneric;
 
+/*
 
+@desc :
+Node Class:
+
+A generic inner class Node<T> represents a node in the linked list.
+Each node contains data of type T and a reference to the next node.
+Insertion Methods:
+
+insertAtEnd(T val): Inserts a new element with the specified value at the end of the linked list.
+insertByPosition(T val, int position): Inserts a new element with the specified value at the specified position in the linked list.
+insertAtBegin(T val): Inserts a new element with the specified value at the beginning of the linked list.
+insertByOrder(T data): Inserts a new element with the specified data in ascending order.
+Deletion Methods:
+
+pop(): Deletes the first element of the linked list.
+popLast(): Deletes the last element of the linked list.
+popByKey(T key): Deletes the element with the specified key from the linked list.
+Search Method:
+
+search(T val): Traverses the linked list to find and return the node with the given data value.
+Other Methods:
+
+insertAfterNode(Node<T> node, T data): Inserts a new node with the given data after the specified node.
+printList(): Traverses and prints each element in the linked list.
+size(): Returns the size (number of elements) in the linked list.
+Main Method:
+
+The main method demonstrates the usage of the generic linked list with various use cases, including insertion at different positions, deletion, searching, and ordered insertion.
+ */
 public class LinkedlistGeneric<T extends Comparable<T>> {
 
     Node<T> head;
     //initialization of a node
-    /*
-    @desc : Class node is a generic class it contains and data and a next pointer of type T which we initialize
 
-     */
-    public class Node<T>{
-        T data;
-        Node<T> next;
-        /*
-        @desc : constructor initializing node with value d of type T(object)
-        @param - T(Type object primitive) - data
-        @return : no return
-         */
-        Node(T data){
-            this.data = data;
-            next = null;
-        }
-    }
 
 /*
 
@@ -184,7 +197,12 @@ public class LinkedlistGeneric<T extends Comparable<T>> {
                 last = last.next;
 
             }
-            data = curr.next.data;
+            if(last == curr){
+                data = last.data;
+            }
+            if(curr.next != null) {
+                data = curr.next.data;
+            }
             curr.next = null;
         }
         return data;
@@ -260,11 +278,8 @@ public class LinkedlistGeneric<T extends Comparable<T>> {
         }
      }
     /*
-
         @desc :  This method traverses the linked list and prints each element.
-
         @param :  None.
-
         @return :  No explicit return value.
  */
     public void printList()
@@ -293,72 +308,6 @@ public class LinkedlistGeneric<T extends Comparable<T>> {
         return count;
     }
 
-
-    public static void main(String[] args) {
-
-        System.out.println("!!! Welcome the linked list generic problem !!!");
-
-        //initialized a integer link list
-        LinkedlistGeneric<Integer> newLinkedList = new LinkedlistGeneric<>();
-        // usecase 3
-        newLinkedList.insertAtBegin(70);
-        newLinkedList.printList();
-        newLinkedList.insertAtBegin(30);
-        //30 -> 70
-        newLinkedList.printList();
-        newLinkedList.insertAtBegin(56);
-        //56 -> 30 -> 70
-        newLinkedList.printList();
-
-        //use case 2
-        newLinkedList.insertAtEnd(56);
-        //56 -> 30 -> 70 -> 56
-        newLinkedList.printList();
-        newLinkedList.insertAtEnd(30);
-        //56 -> 30 -> 70 -> 56-> 30
-        newLinkedList.printList();
-        newLinkedList.insertAtEnd(70);
-        //56 -> 30 -> 70 -> 56 -> 30 -> 70
-        newLinkedList.printList();
-
-        //usecase 4
-        newLinkedList.insertByPosition(100 , 3);
-        //56 -> 30 -> 70 -> 100 -> 56 -> 30 -> 70
-        newLinkedList.printList();
-//usecase 5
-        System.out.println("deleted item first is : " + newLinkedList.pop());
-        //30 -> 70 -> 100 -> 56 -> 30 -> 70
-        newLinkedList.printList();
-        //usecase 6
-        System.out.println("deleted item last is : " + newLinkedList.popLast());
-        //30 -> 70 -> 100 -> 56 -> 30
-        newLinkedList.printList();
-        //usecase 7
-        if(newLinkedList.search(100) != null){
-            System.out.println("element is present in linked list");
-        }
-        //usecase 8
-        LinkedlistGeneric<Integer>.Node<Integer>node = newLinkedList.search(100);
-        newLinkedList.insertAfterNode(node , 57);
-        newLinkedList.printList();
-//usecase 9
-        newLinkedList.popByKey(100);
-        newLinkedList.printList();
-
-        //usecase 10
-        System.out.println("\nOrdered linkedlist : ");
-        LinkedlistGeneric<Integer> newOrderedLinkedList = new LinkedlistGeneric<>();
-
-        newOrderedLinkedList.insertByOrder(100);
-        newOrderedLinkedList.insertByOrder(40);
-        newOrderedLinkedList.printList();
-        newOrderedLinkedList.insertByOrder(50);
-        newOrderedLinkedList.printList();
-        newOrderedLinkedList.insertByOrder(90);
-        newOrderedLinkedList.printList();
-
-
-    }
 
 }
 

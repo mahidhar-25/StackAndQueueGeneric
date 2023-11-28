@@ -1,5 +1,8 @@
-package DataStructureGeneric;
-
+package com.bridgelabz.datastructuregeneric;
+/*
+@desc : this class represents a queue where it has two ends rear and front it has certain methods
+     like enqueue insert at end and dequeue delete from on end and once can peek the first element and last element
+ */
 public class QueueGeneric<T extends Comparable<T>> extends LinkedlistGeneric<T>{
     Node<T> rear;
     /*
@@ -61,20 +64,5 @@ public class QueueGeneric<T extends Comparable<T>> extends LinkedlistGeneric<T>{
 
         return data;
     }
-    public static void main(String[] args) {
-        System.out.println("!!! welcome to queue !!!");
-        QueueGeneric<Integer> newQueue= new QueueGeneric<>();
-        newQueue.enqueue(70);
-        newQueue.printList();
-        newQueue.enqueue(36);
-        newQueue.printList();
-        newQueue.enqueue(50);
-        newQueue.printList();
-        System.out.println("top element in queue is : " + newQueue.lastData());
-        newQueue.dequeue();
-        newQueue.printList();
-        System.out.println("top element in queue is : " + newQueue.lastData());
-        newQueue.dequeue();
-        newQueue.printList();
-    }
+
 }

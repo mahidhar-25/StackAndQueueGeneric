@@ -1,5 +1,8 @@
-package DataStructureGeneric;
-
+package com.bridgelabz.datastructuregeneric;
+/*
+@desc : this class represents a stack where it has ons sided link list you can insert from one end you can pop from
+        same end , you have peek method to see the top element inside statck
+ */
 public class StackGeneric<T extends Comparable<T>> extends LinkedlistGeneric<T> {
 
     /*
@@ -36,20 +39,5 @@ public class StackGeneric<T extends Comparable<T>> extends LinkedlistGeneric<T> 
 
         return data;
     }
-    public static void main(String[] args) {
-        System.out.println("!!! welcome to stack !!!");
-        StackGeneric<Integer> newStack = new StackGeneric<>();
-        newStack.push(70);
-        newStack.printList();
-        newStack.push(36);
-        newStack.printList();
-        newStack.push(50);
-        newStack.printList();
-        System.out.println("top element in stack is : " + newStack.peek());
-        newStack.pop();
-        newStack.printList();
-        System.out.println("top element in stack is : " + newStack.peek());
-        newStack.pop();
-        newStack.printList();
-    }
+
 }
